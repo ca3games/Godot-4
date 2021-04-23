@@ -1,0 +1,28 @@
+3844edc3d1660e6e25a999aafc25a878
+::res://::1619208167
+default_env.tres::Environment::1619208167::0::1::::<><>::
+icon.png::StreamTexture2D::1619206146::1619206166::1::::<><>::
+::res://3D/::1619209459
+Ground.tres::StandardMaterial3D::1619209459::0::1::::<><>::
+Ground_albedo.png::StreamTexture2D::1619209458::1619209497::1::::<><>::
+Ground_normal.png::StreamTexture2D::1619209459::1619209498::1::::<><>::
+Ground_orm.png::StreamTexture2D::1619209458::1619209496::1::::<><>::
+auto_service_1k.hdr::StreamTexture2D::1619153970::1619206848::1::::<><>::
+::res://3D/Brick/::1619206296
+Brick.obj::Mesh::1619153138::1619206296::1::::<><>::
+::res://3D/Brick/Finish texture/::1619206295
+Brick_base.png::StreamTexture2D::1619153146::1619206295::1::::<><>::
+Brick_metal.png::StreamTexture2D::1619153146::1619206295::1::::<><>::
+Brick_nor.png::StreamTexture2D::1619153146::1619206295::1::::<><>::
+Brick_occ.png::StreamTexture2D::1619153146::1619206295::1::::<><>::
+Brick_rough.png::StreamTexture2D::1619153146::1619206295::1::::<><>::
+::res://3D/Wall/::1619206296
+Wall Sculpt.obj::Mesh::1619204416::1619206296::1::::<><>::
+Wall_base.png::StreamTexture2D::1619204457::1619206295::1::::<><>::
+Wall_metal.png::StreamTexture2D::1619204457::1619206295::1::::<><>::
+Wall_nor.png::StreamTexture2D::1619204457::1619206295::1::::<><>::
+Wall_occ.png::StreamTexture2D::1619204457::1619206295::1::::<><>::
+Wall_rough.png::StreamTexture2D::1619204457::1619206295::1::::<><>::
+::res://Scenes/::1619208167
+Brick.tscn::PackedScene::1619206525::0::1::::<><>::res://3D/Brick/Brick.obj<>res://3D/Brick/Finish texture/Brick_base.png<>res://3D/Brick/Finish texture/Brick_metal.png<>res://3D/Brick/Finish texture/Brick_rough.png<>res://3D/Brick/Finish texture/Brick_nor.png<>res://3D/Brick/Finish texture/Brick_occ.png
+Test.tscn::PackedScene::1619208167::0::1::::<><>::res://Scenes/Brick.tscn<>res://3D/auto_service_1k.hdr<>res://3D/Wall/Wall Sculpt.obj<>res://3D/Wall/Wall_base.png<>res://3D/Wall/Wall_nor.png<>res://3D/Wall/Wall_rough.png<>res://3D/Wall/Wall_occ.png<>res://3D/Wall/Wall_metal.png
