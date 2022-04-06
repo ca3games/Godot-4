@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Script/Japanese.gd" type="Script" id=1]
+[ext_resource path="res://Font/M_PLUS_Rounded_1c/MPLUSRounded1c-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Font/M_PLUS_Rounded_1c/MPLUSRounded1c-Light.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Kanji" type="Label" parent="."]
+margin_left = 195.0
+margin_top = 143.0
+margin_right = 356.0
+margin_bottom = 239.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="kana" type="Label" parent="."]
+margin_left = 188.0
+margin_top = 290.0
+margin_right = 349.0
+margin_bottom = 386.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="English" type="Label" parent="."]
+margin_left = 57.0
+margin_top = 419.0
+margin_right = 566.0
+margin_bottom = 589.0
+custom_fonts/font = SubResource( 1 )
+autowrap = true
+
+[node name="Change" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="id" type="Label" parent="."]
+margin_left = 442.0
+margin_top = 5.0
+margin_right = 587.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 51.0
+margin_bottom = 25.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 5.0
+margin_right = 32.0
+margin_bottom = 19.0
+text = "Time"
+
+[node name="Time" type="LineEdit" parent="HBoxContainer"]
+margin_left = 36.0
+margin_right = 94.0
+margin_bottom = 24.0
+text = "3"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+margin_left = 98.0
+margin_right = 139.0
+margin_bottom = 24.0
+text = "start"
+
+[node name="Stop" type="Button" parent="HBoxContainer"]
+margin_left = 143.0
+margin_right = 183.0
+margin_bottom = 24.0
+text = "stop"
+
+[node name="Change ID" type="Button" parent="HBoxContainer"]
+margin_left = 187.0
+margin_right = 258.0
+margin_bottom = 24.0
+text = "Change #"
+
+[node name="ID" type="LineEdit" parent="HBoxContainer"]
+margin_left = 262.0
+margin_right = 320.0
+margin_bottom = 24.0
+text = "0"
+
+[node name="Info" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 35.0
+margin_right = 54.0
+margin_bottom = 67.0
+text = "Press press start"
+
+[connection signal="timeout" from="Change" to="." method="_on_Change_timeout"]
+[connection signal="button_up" from="HBoxContainer/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="HBoxContainer/Stop" to="." method="_on_Stop_button_up"]
+[connection signal="button_up" from="HBoxContainer/Change ID" to="." method="_on_Change_ID_button_up"]
