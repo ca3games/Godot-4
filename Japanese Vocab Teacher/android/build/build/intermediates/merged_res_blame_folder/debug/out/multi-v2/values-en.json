@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/cris/Documentos/GitHub/Godot-4/Japanese Vocab Teacher/android/build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/home/cris/Documentos/GitHub/Godot-4/Japanese Vocab Teacher/android/build/res/values-en/godot_project_name_string.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "1",
+                        "startOffsets": "112",
+                        "endColumns": "73",
+                        "endOffsets": "184"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "76",
+                        "endOffsets": "127"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+#Wed Apr 06 15:19:23 COT 2022
+base.0=/home/cris/Documentos/GitHub/Godot-4/Japanese Vocab Teacher/android/build/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

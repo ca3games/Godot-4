@@ -5,7 +5,11 @@ var id = 0
 var time = 3
 
 func _ready():
+	OS.request_permissions()
 	LoadCSV()
+	
+	$AdMob.load_banner()
+	$AdMob.show_banner()
 
 func LoadCSV():
 	var file = File.new()

@@ -1,13 +1,3 @@
 [remap]
 
-importer="csv_translation"
-type="Translation"
-valid=false
-
-[deps]
-
-source_file="res://CSV/Japanese vocabulary 6000 - Sheet1.csv"
-[params]
-
-compress=true
-delimiter=0
+importer="keep"
