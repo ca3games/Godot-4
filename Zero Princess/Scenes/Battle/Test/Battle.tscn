@@ -40,5 +40,5 @@ environment = SubResource( 4 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 45.5622, 64.3661 )
 current = true
-fov = 40.0
+fov = 35.0
 far = 900.0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Characters/Models/Girls/Blonde/Blonde.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.76408
+height = 7.20987
+
+[node name="Blonde" type="KinematicBody"]
+
+[node name="Blonde" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0.791776, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.137783, 0 )
+shape = SubResource( 1 )
