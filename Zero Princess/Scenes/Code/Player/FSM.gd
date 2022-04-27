@@ -10,6 +10,8 @@ export(float) var speed = 5
 export(NodePath) var AniPath
 onready var Ani = get_node(AniPath)
 
+onready var state_machine = $"../AnimationTree".get("parameters/playback")
+
 
 func _process(delta):
 	current.Update(delta)
@@ -25,6 +27,7 @@ func ChangeState(STATE):
 	match (STATE):
 		"IDLE" : current = $IDLE
 		"WALK" :  current = $WALK
+		"PUNCH" : current =  $PUNCH
 
 func FindTarget(player, delta):
 	if player == 0:
@@ -41,3 +44,8 @@ func LookAtTarget(target, delta):
 	Root.look_at(pos, Vector3.UP)
 	var target_basis = Root.transform.basis.orthonormalized()
 	Root.transform.basis = old_basis.slerp(target_basis, delta * 10.0)
+
+
+func _on_Punch_body_entered(body):
+	if body.is_in_group("GIRL"):
+		body.HIT()

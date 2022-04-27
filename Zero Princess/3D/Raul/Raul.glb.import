@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/raul textured.glb-cbf8c11c9f591c326a52f4c81e112157.scn"
+path="res://.import/Raul.glb-2c00d1abb681bed4fa072a19e91586ba.scn"
 
 [deps]
 
-source_file="res://3D/Models/raul textured.glb"
-dest_files=[ "res://.import/raul textured.glb-cbf8c11c9f591c326a52f4c81e112157.scn" ]
+source_file="res://3D/Raul/Raul.glb"
+dest_files=[ "res://.import/Raul.glb-2c00d1abb681bed4fa072a19e91586ba.scn" ]
 
 [params]
 

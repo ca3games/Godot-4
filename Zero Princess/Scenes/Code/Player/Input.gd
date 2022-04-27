@@ -24,6 +24,8 @@ func P1Buttons():
 			FSM.Root.targetid = 0
 		else:
 			FSM.Root.targetid = FSM.Root.lasttargetid
+	if Input.is_action_just_released("PUNCH"):
+		FSM.ChangeState("PUNCH")
 
 
 func myInput(player):
