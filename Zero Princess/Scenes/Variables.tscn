@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 Levels = [ "res://Scenes/Battle/Test/Battle.tscn" ]
 Characters = [ "res://Scenes/Characters/Models/Raul/Raul.tscn", "res://Scenes/Characters/Models/Girls/Blonde/Blonde Kinematic.tscn" ]
+Enemies = [ "res://Scenes/Characters/Models/Monsters/Basic Goblin/Basic goblin K.tscn" ]

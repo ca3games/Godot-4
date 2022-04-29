@@ -26,10 +26,11 @@ func P1Buttons():
 			FSM.Root.targetid = FSM.Root.lasttargetid
 	if Input.is_action_just_released("PUNCH"):
 		FSM.ChangeState("PUNCH")
+	if Input.is_action_just_released("GIRLBALL"):
+		FSM.ChangeState("GIRLBALL")
+		FSM.get_node("GIRLBALL").ThrowGirlBall()
 
 
-func myInput(player):
-	match(player):
-		1: 
-			P1Buttons()
-			return P1Move()
+func myInput():
+	P1Buttons()
+	return P1Move()

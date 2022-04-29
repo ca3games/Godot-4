@@ -13,7 +13,7 @@ func Physics(delta):
 	pass
 
 func RotateTowardsPlayer(delta):
-	var p1 = FSM.Root.get_parent().get_parent().fighters[0].global_transform.origin
+	var p1 = FSM.Root.get_parent().Player.global_transform.origin
 	var p2 = FSM.Root.global_transform.origin
 	var center = (p2 - p1) / 2
 	LookAtTarget(p2 + center, delta)

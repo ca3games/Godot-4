@@ -6,13 +6,10 @@ func _ready():
 		FSM = $"../"
 
 func Update(delta):
-	if is_instance_valid(FSM):
-		var dir = FSM.get_node("Input").myInput(FSM.Root.id)
-		if dir != Vector2.ZERO:
-			FSM.direction = dir
-			FSM.ChangeState("WALK")
-	else:
-		FSM = $"../"
-
+	var dir = FSM.get_node("Input").myInput()
+	if dir != Vector2.ZERO:
+		FSM.direction = dir
+		FSM.ChangeState("WALK")
+	
 func Physics(delta):
 	FSM.state_machine.travel("IDLE")
