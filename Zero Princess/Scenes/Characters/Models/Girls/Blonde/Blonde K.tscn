@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scenes/Characters/Models/Girls/Blonde/Blonde.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Characters/Models/Girls/Blonde/Blonde M.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Code/Girls/Basic/FSM.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Code/Girls/Basic/IDLE.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Code/Girls/Basic/Girl.gd" type="Script" id=4]
@@ -86,6 +86,11 @@ FSMPath = NodePath("..")
 [node name="FALL" type="Spatial" parent="FSM"]
 script = ExtResource( 5 )
 FSMPath = NodePath("..")
+ClothesPath = NodePath("../../Blonde/metarig/Skeleton/Cube005")
+rip_timer = 5.0
+
+[node name="RIPCLOTHE" type="Timer" parent="FSM/FALL"]
+one_shot = true
 
 [node name="DIZZY" type="Spatial" parent="FSM"]
 script = ExtResource( 6 )

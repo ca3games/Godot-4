@@ -5,5 +5,5 @@ func _ready():
 	pass
 
 func HIT():
-	print("HIT")
 	$FSM.ChangeState("FALL")
+	$FSM/FALL.RIPCLOTHES()

@@ -5,5 +5,5 @@
 [node name="Variables" type="Node2D"]
 script = ExtResource( 1 )
 Levels = [ "res://Scenes/Battle/Test/Battle.tscn" ]
-Characters = [ "res://Scenes/Characters/Models/Raul/Raul.tscn", "res://Scenes/Characters/Models/Girls/Blonde/Blonde Kinematic.tscn" ]
+Characters = [ "res://Scenes/Characters/Models/Raul/Raul.tscn", "res://Scenes/Characters/Models/Girls/Blonde/Blonde K.tscn" ]
 Enemies = [ "res://Scenes/Characters/Models/Monsters/Basic Goblin/Basic goblin K.tscn" ]

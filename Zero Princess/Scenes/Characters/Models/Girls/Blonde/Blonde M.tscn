@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://3D/Girls/Blonde/DIZZY.anim" type="Animation" id=1]
 [ext_resource path="res://3D/Girls/Blonde/IDLE.anim" type="Animation" id=2]
 [ext_resource path="res://3D/Girls/Blonde/HIT FALL.anim" type="Animation" id=3]
 [ext_resource path="res://3D/Girls/Blonde/Material.material" type="Material" id=4]
+[ext_resource path="res://3D/Girls/Blonde/blonde.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Code/Shaders/RIP clothes.gdshader" type="Shader" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Blonde_Cube"
@@ -245,6 +247,21 @@ surfaces/0 = {
 "skeleton_aabb": [ AABB( -1.50744, 2.78013, -1.23226, 3.01487, 1.84808, 0.712874 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -1.26998, 3.36539, -0.882513, 2.53997, 2.03558, 1.91503 ), AABB( -0.519678, 4.58791, -0.121566, 1.03936, 0.98404, 1.0248 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.485054, 4.33634, -0.882513, 1.85005, 1.23561, 1.91503 ), AABB( 0, 3.41692, -0.882513, 1.79168, 1.98404, 1.91503 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -1.365, 4.33634, -0.863766, 1.85005, 1.23561, 1.89629 ), AABB( -1.79168, 3.41692, -0.863766, 1.51774, 1.98404, 1.89629 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.941521, 2.74155, -1.23226, 2.58983, 2.40274, 2.26478 ), AABB( -1.64831, 2.74155, -1.23226, 2.58983, 2.40274, 2.26478 ), AABB( -0.386736, 2.74155, -1.23226, 2.03505, 1.88666, 2.21798 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -1.64831, 2.74155, -1.20142, 2.03505, 1.88666, 2.18715 ) ],
 "vertex_count": 440
 }
+
+[sub_resource type="OpenSimplexNoise" id=18]
+
+[sub_resource type="NoiseTexture" id=19]
+noise = SubResource( 18 )
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = ExtResource( 6 )
+shader_param/dissolveAmount = 0.0
+shader_param/edgeSize = 0.1
+shader_param/edgeColor = Color( 0.486275, 0.486275, 0.486275, 1 )
+shader_param/edgeThickness = 0.1
+shader_param/noiseTiling = 2.0
+shader_param/baseTexture = ExtResource( 5 )
+shader_param/noiseTexture = SubResource( 19 )
 
 [sub_resource type="ArrayMesh" id=8]
 resource_name = "Blonde_Cube006"
@@ -646,7 +663,7 @@ material/0 = null
 [node name="Cube005" type="MeshInstance" parent="metarig/Skeleton"]
 mesh = SubResource( 7 )
 skin = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 17 )
 
 [node name="Cube006" type="MeshInstance" parent="metarig/Skeleton"]
 mesh = SubResource( 8 )
