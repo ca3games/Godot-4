@@ -1,0 +1,165 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Scenes/Code/Player/FSM.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Code/Player/IDLE.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Code/Player/Input.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Code/Player/PUNCH.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Code/Player/Root.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Code/Player/WALK.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Code/Player/GIRLBALL.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Characters/Models/Raul/raul model.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Characters/Models/Items/Pokeball/Pokeball R.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Code/Player/SEX STANDING.gd" type="Script" id=10]
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CollisionShape:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.465225, -0.623342, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Punch/CollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Punch/CollisionShape:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.73628
+height = 7.27979
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "PUNCH"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "SEX STANDING"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "WALK"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachine" id=3]
+states/IDLE/node = SubResource( 2 )
+states/IDLE/position = Vector2( 337.667, 60.3333 )
+states/PUNCH/node = SubResource( 5 )
+states/PUNCH/position = Vector2( 412.333, -46 )
+"states/SEX STANDING/node" = SubResource( 14 )
+"states/SEX STANDING/position" = Vector2( 418.333, 164.333 )
+states/WALK/node = SubResource( 6 )
+states/WALK/position = Vector2( 523, 59.1481 )
+transitions = [ "IDLE", "WALK", SubResource( 7 ), "WALK", "IDLE", SubResource( 8 ), "IDLE", "PUNCH", SubResource( 9 ), "PUNCH", "IDLE", SubResource( 10 ), "WALK", "PUNCH", SubResource( 11 ), "IDLE", "SEX STANDING", SubResource( 15 ), "WALK", "SEX STANDING", SubResource( 16 ), "SEX STANDING", "IDLE", SubResource( 17 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( 4, 4 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="SphereShape" id=13]
+
+[node name="Fighter" type="KinematicBody"]
+script = ExtResource( 5 )
+
+[node name="raul textured" parent="." instance=ExtResource( 8 )]
+
+[node name="AnimationPlayer" parent="raul textured" index="1"]
+autoplay = "IDLE"
+anims/RESET = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.465225, -0.623342, 0 )
+shape = SubResource( 1 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 1 )
+RootPath = NodePath("..")
+AniPath = NodePath("../AnimationTree")
+
+[node name="Input" type="Spatial" parent="FSM"]
+script = ExtResource( 3 )
+FSMPath = NodePath("..")
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 2 )
+FSMPath = NodePath("..")
+
+[node name="WALK" type="Spatial" parent="FSM"]
+script = ExtResource( 6 )
+FSMPath = NodePath("..")
+
+[node name="PUNCH" type="Spatial" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+
+[node name="GIRLBALL" type="Spatial" parent="FSM"]
+script = ExtResource( 7 )
+FSMPath = NodePath("..")
+GirlBall = ExtResource( 9 )
+force = 300.0
+forceY = 1.5
+
+[node name="SEX STANDING" type="Spatial" parent="FSM"]
+script = ExtResource( 10 )
+FSMPath = NodePath("..")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 3 )
+anim_player = NodePath("../raul textured/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 4 )
+
+[node name="Punch" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Punch"]
+transform = Transform( 3.62849, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+shape = SubResource( 13 )
+disabled = true
+
+[node name="SexPeg" type="Position3D" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.653112, -0.959331, 2.00603 )
+
+[connection signal="body_entered" from="Punch" to="FSM" method="_on_Punch_body_entered"]
+
+[editable path="raul textured"]

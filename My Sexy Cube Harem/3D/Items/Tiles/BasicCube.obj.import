@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/BasicCube.obj-545da1952d53c4ec0b0fb8f0049d31af.mesh"
+
+[deps]
+
+files=[ "res://.import/BasicCube.obj-545da1952d53c4ec0b0fb8f0049d31af.mesh" ]
+
+source_file="res://3D/Items/Tiles/BasicCube.obj"
+dest_files=[ "res://.import/BasicCube.obj-545da1952d53c4ec0b0fb8f0049d31af.mesh", "res://.import/BasicCube.obj-545da1952d53c4ec0b0fb8f0049d31af.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

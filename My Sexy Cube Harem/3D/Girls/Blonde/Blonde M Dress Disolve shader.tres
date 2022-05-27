@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://3D/Girls/Blonde/blonde.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Code/Shaders/RIP clothes.gdshader" type="Shader" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=18]
+
+[sub_resource type="NoiseTexture" id=19]
+noise = SubResource( 18 )
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/dissolveAmount = 0.0
+shader_param/edgeSize = 0.1
+shader_param/edgeColor = Color( 0.486275, 0.486275, 0.486275, 1 )
+shader_param/edgeThickness = 0.1
+shader_param/noiseTiling = 2.0
+shader_param/baseTexture = ExtResource( 1 )
+shader_param/noiseTexture = SubResource( 19 )
