@@ -93,13 +93,13 @@ states/WALK/node = SubResource( 6 )
 states/WALK/position = Vector2( 523, 59.1481 )
 transitions = [ "IDLE", "WALK", SubResource( 7 ), "WALK", "IDLE", SubResource( 8 ), "IDLE", "PUNCH", SubResource( 9 ), "PUNCH", "IDLE", SubResource( 10 ), "WALK", "PUNCH", SubResource( 11 ), "IDLE", "SEX STANDING", SubResource( 15 ), "WALK", "SEX STANDING", SubResource( 16 ), "SEX STANDING", "IDLE", SubResource( 17 ) ]
 start_node = "IDLE"
-graph_offset = Vector2( 4, 4 )
+graph_offset = Vector2( -47, -39 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=4]
 
 [sub_resource type="SphereShape" id=13]
 
-[node name="Fighter" type="KinematicBody"]
+[node name="RAUL" type="KinematicBody" groups=["PLAYER"]]
 script = ExtResource( 5 )
 
 [node name="raul textured" parent="." instance=ExtResource( 8 )]
@@ -115,6 +115,7 @@ shape = SubResource( 1 )
 [node name="FSM" type="Spatial" parent="."]
 script = ExtResource( 1 )
 RootPath = NodePath("..")
+speed = 10.0
 AniPath = NodePath("../AnimationTree")
 
 [node name="Input" type="Spatial" parent="FSM"]

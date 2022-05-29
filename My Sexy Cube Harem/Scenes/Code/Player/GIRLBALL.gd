@@ -13,6 +13,7 @@ func ThrowGirlBall():
 	var ball = GirlBall.instance()
 	ball.global_transform.origin = FSM.Root.global_transform.origin
 	ball.girl = Variables.Characters[Variables.Gimballs[0]]
+	ball.Player = FSM.Root.get_parent().Player
 	FSM.Root.Items.add_child(ball)
 	ball.add_force(Vector3(-FSM.direction.x, forceY, FSM.direction.y) * force, Vector3.UP)
 

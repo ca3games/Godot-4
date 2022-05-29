@@ -4,14 +4,17 @@ export (float) var offset
 var fighters = []
 
 export(int) var enemiesmax
+export(NodePath) var PlayerPath
+onready var Player = get_node(PlayerPath)
 
 func AddFighter(id, targetid, chara):
 	var fighter
-	fighter = load(Variables.Enemies[chara-1]).instance()
+	fighter = load(Variables.Characters[1]).instance()
 	var positionnode = Position3D.new()
 	var pos = Vector2(id % 3, id / 3) * offset
 	positionnode.global_transform.origin += Vector3(pos.x, 0, -pos.y)
 	positionnode.name = str(id)
+	fighter.Player = Player
 	add_child(positionnode)
 	var parent = get_node(str(id))
 	if chara == 0:

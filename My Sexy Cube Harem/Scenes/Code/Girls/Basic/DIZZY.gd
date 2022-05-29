@@ -7,4 +7,4 @@ func Begin():
 
 func _on_Timer_timeout():
 	FSM.ChangeState("IDLE")
-	FSM.Root.get_parent().Player.StopSEX()
+	FSM.Root.Player.StopSEX()

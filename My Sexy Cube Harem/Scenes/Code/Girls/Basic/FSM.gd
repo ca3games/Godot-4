@@ -21,3 +21,9 @@ func ChangeState(state):
 		"FALL" : current =  $FALL
 		"DIZZY" : current = $DIZZY
 		"SEX STANDING" : current = $"SEX STANDING"
+		"THROWBALL" : 
+			current = $THROWBALL
+			current.Throw()
+		"WALK" : 
+			current = $WALK
+			current.Start()
