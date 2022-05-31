@@ -17,4 +17,8 @@ func Start():
 
 
 func _on_Timer_timeout():
-	FSM.ChangeState("THROWBALL")
+	if Variables.spawnedenemies < Variables.maxspawn:
+		FSM.ChangeState("THROWBALL")
+		Variables.spawnedenemies += 1
+	else:
+		FSM.ChangeState("IDLE")

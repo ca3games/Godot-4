@@ -5,9 +5,8 @@ func Throw():
 	var ball = GirlBall.instance()
 	ball.global_transform.origin = FSM.Root.global_transform.origin
 	ball.girl = Variables.Enemies[FSM.Root.enemycaptured]
-	ball.Player = FSM.Root.Player
 	FSM.Root.get_parent().get_parent().add_child(ball)
-	var p1 = FSM.Root.Player.global_transform.origin
+	var p1 = Variables.Player.global_transform.origin
 	var p2 = FSM.Root.global_transform.origin
 	var a = (p1 - p2).normalized()
 	ball.add_force(a * force, Vector3.UP)

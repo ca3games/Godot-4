@@ -3,6 +3,10 @@ extends Spatial
 export(NodePath) var FSMPath
 onready var FSM = get_node(FSMPath)
 
+func _ready():
+	if FSM == null:
+		FSM = $"../"
+
 
 func Update(delta):
 	pass
@@ -11,7 +15,7 @@ func Physics(delta):
 	pass
 
 func RotateTowardsPlayer(delta):
-	var p1 = FSM.Root.Player.global_transform.origin
+	var p1 = Variables.Player.global_transform.origin
 	var p2 = FSM.Root.global_transform.origin
 	var center = (p2 - p1) / 2
 	LookAtTarget(p2 + center, delta)

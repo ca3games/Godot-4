@@ -5,6 +5,12 @@ export(int) var hatchedtime = 3
 export (float) var Yoffset
 var Player
 
+
+func TakePlayer(p):
+	Player = p
+	print(Player)
+
+
 func _ready():
 	$Timer.start(hatchedtime)
 

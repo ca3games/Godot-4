@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GUI/Portraits Manager.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Battle/Test/Battle.tscn" type="PackedScene" id=2]
+
+[node name="GUI" type="Node2D"]
+
+[node name="Battle" type="ViewportContainer" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 701.0
+margin_bottom = 501.0
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Battle"]
+size = Vector2( 700, 500 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Battle" parent="Battle/Viewport" instance=ExtResource( 2 )]
+
+[node name="Portraits Manager" parent="." instance=ExtResource( 1 )]
+position = Vector2( 871, 412 )

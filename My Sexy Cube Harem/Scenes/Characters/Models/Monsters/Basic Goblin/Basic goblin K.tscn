@@ -1,14 +1,129 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Scenes/Characters/Models/Monsters/Basic Goblin/basic goblin.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Characters/Models/Monsters/BasicEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Code/Monsters/Goblin/Basic goblin Root.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Code/Monsters/Goblin/VISION.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Code/Monsters/Goblin/Basic goblin Root.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Code/Girls/Basic/FALL.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Code/Girls/Basic/SEX.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Code/Monsters/Goblin/WALK.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Code/Girls/Basic/FSM.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Characters/Models/Monsters/Basic Goblin/Basic goblin M.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Code/Girls/Basic/IDLE.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Code/Girls/Basic/DIZZY.gd" type="Script" id=13]
 
-[node name="BasicEnemy" instance=ExtResource( 2 )]
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.76408
+height = 7.20987
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "DIZZY"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "HIT FALL"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "SEX STANDING"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "WALK"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachine" id=2]
+states/DIZZY/node = SubResource( 7 )
+states/DIZZY/position = Vector2( 482.333, 70.3333 )
+"states/HIT FALL/node" = SubResource( 5 )
+"states/HIT FALL/position" = Vector2( 343, -15.6667 )
+states/IDLE/node = SubResource( 4 )
+states/IDLE/position = Vector2( 179, 83 )
+"states/SEX STANDING/node" = SubResource( 10 )
+"states/SEX STANDING/position" = Vector2( 343.667, 186.333 )
+states/WALK/node = SubResource( 21 )
+states/WALK/position = Vector2( -69, 83.6667 )
+transitions = [ "IDLE", "HIT FALL", SubResource( 6 ), "HIT FALL", "DIZZY", SubResource( 8 ), "IDLE", "SEX STANDING", SubResource( 11 ), "DIZZY", "SEX STANDING", SubResource( 12 ), "SEX STANDING", "IDLE", SubResource( 13 ), "IDLE", "WALK", SubResource( 22 ), "WALK", "IDLE", SubResource( 23 ) ]
+start_node = "IDLE"
+graph_offset = Vector2( -245, 1 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[node name="Goblin" type="KinematicBody" groups=["GIRL"]]
+script = ExtResource( 2 )
+
+[node name="basic goblin" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.137783, 0.11766 )
+shape = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../basic goblin/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 3 )
+
+[node name="FSM" type="Spatial" parent="."]
+script = ExtResource( 6 )
+RootPath = NodePath("..")
+
+[node name="IDLE" type="Spatial" parent="FSM"]
+script = ExtResource( 8 )
+FSMPath = NodePath("..")
+
+[node name="FALL" type="Spatial" parent="FSM"]
 script = ExtResource( 3 )
+FSMPath = NodePath("..")
+rip_timer = 5.0
 
-[node name="CollisionShape" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.574938, 0 )
+[node name="RIPCLOTHE" type="Timer" parent="FSM/FALL"]
+one_shot = true
 
-[node name="basic goblin" parent="." index="1" instance=ExtResource( 1 )]
-transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0 )
+[node name="DIZZY" type="Spatial" parent="FSM"]
+script = ExtResource( 13 )
+FSMPath = NodePath("..")
+
+[node name="Timer" type="Timer" parent="FSM/DIZZY"]
+
+[node name="SEX STANDING" type="Spatial" parent="FSM"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+
+[node name="Timer" type="Timer" parent="FSM/SEX STANDING"]
+one_shot = true
+
+[node name="WALK" type="Spatial" parent="FSM"]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="FSM/WALK"]
+wait_time = 4.0
+one_shot = true
+
+[node name="VISION" type="Area" parent="."]
+script = ExtResource( 1 )
+FSMPath = NodePath("../FSM")
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="VISION"]
+transform = Transform( 1, 0, 0, 0, 0.0178712, 0.99984, 0, -0.99984, 0.0178712, 0.202343, 4.04942, 0.159489 )
+depth = 20.0
+polygon = PoolVector2Array( -3.36118, -3.68098, 3.52849, -3.34187, 23.0275, -68.2169, -22.8937, -67.9302 )
+
+[connection signal="timeout" from="FSM/DIZZY/Timer" to="FSM/DIZZY" method="_on_Timer_timeout"]
+[connection signal="timeout" from="FSM/SEX STANDING/Timer" to="FSM/SEX STANDING" method="_on_Timer_timeout"]
+[connection signal="timeout" from="FSM/WALK/Timer" to="FSM/WALK" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="VISION" to="VISION" method="_on_VISION_body_entered"]
+
+[editable path="basic goblin"]

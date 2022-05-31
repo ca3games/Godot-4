@@ -10,7 +10,7 @@ func Update(delta):
 	if Input.is_action_just_released("PUNCH"):
 		if minimalsex:
 			minimalsex = false
-			FSM.Root.Player.StopSEX()
+			Variables.Player.StopSEX()
 			FSM.ChangeState("IDLE")
 
 func Stop():
