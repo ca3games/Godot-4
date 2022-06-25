@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Baskic8-Bold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/bar line.png" type="Texture" id=3]
+[ext_resource path="res://GUI/bar.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0.92549, 0.152941, 0.0666667, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 1
+outline_color = Color( 0.0784314, 0.188235, 0.301961, 1 )
+font_data = ExtResource( 2 )
+
+[node name="GUI" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="score" type="Label" parent="."]
+margin_left = -4.0
+margin_top = 66.0
+margin_right = 330.0
+margin_bottom = 100.0
+custom_colors/font_color = Color( 0.996078, 0.839216, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+autowrap = true
+
+[node name="label" type="Label" parent="."]
+margin_left = -199.0
+margin_top = 65.0
+margin_right = 135.0
+margin_bottom = 99.0
+custom_colors/font_color = Color( 0.996078, 0.839216, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "CALORIES "
+align = 2
+autowrap = true
+
+[node name="label2" type="Label" parent="."]
+margin_left = -245.0
+margin_top = 21.0
+margin_right = 89.0
+margin_bottom = 55.0
+custom_colors/font_color = Color( 0.176471, 0.494118, 0.941176, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "next"
+align = 2
+autowrap = true
+
+[node name="Next" type="TextureProgress" parent="."]
+margin_left = 34.0
+margin_top = 38.0
+margin_right = 134.0
+margin_bottom = 54.0
+rect_scale = Vector2( 3, 1 )
+value = 1.0
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+tint_under = Color( 0.184314, 0.529412, 0.870588, 1 )

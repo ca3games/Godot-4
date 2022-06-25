@@ -1005,3 +1005,11 @@ FSMPath = NodePath("..")
 [node name="WALK" type="Node2D" parent="FSM"]
 script = ExtResource( 108 )
 FSMPath = NodePath("..")
+
+[node name="Stop" type="Timer" parent="FSM/WALK"]
+one_shot = true
+
+[node name="Delay" type="Timer" parent="FSM/WALK"]
+
+[connection signal="timeout" from="FSM/WALK/Stop" to="FSM" method="_on_Timer_timeout"]
+[connection signal="timeout" from="FSM/WALK/Delay" to="FSM" method="_on_Delay_timeout"]

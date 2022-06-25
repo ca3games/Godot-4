@@ -26,3 +26,21 @@ func CheckInput():
 		direction.y = -1
 	
 	return direction
+
+func CheckInputVector():
+	var direction = Vector2.ZERO
+	var left = false
+	var right = false
+	var up = false
+	var down = false
+	
+	if Input.is_action_pressed("LEFT"):
+		direction.x = -1
+	if Input.is_action_pressed("RIGHT"):
+		direction.x = 1
+	if Input.is_action_pressed("UP"):
+		direction.y = 1
+	if Input.is_action_pressed("DOWN"):
+		direction.y = -1
+	
+	return direction
